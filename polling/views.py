@@ -49,46 +49,6 @@ def detail(request, poll_id):
 
     return render(request, 'detail.html', {'poll': poll, 'total_votes': total_votes, 'form': form})
 
-
-def vote(request, poll_id):
-    # poll = get_object_or_404(Poll, pk=poll_id)
-    # try:
-    #     selected_choice = poll.choice_set.get(pk=request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-    #     return render(request, 'detail.html', {
-    #         'poll': poll,
-    #         'error_message': "You didn't select a choice.",
-    #     })
-    # else:
-    #     selected_choice.votes += 1
-    #     selected_choice.save()
-    #     return JsonResponse({'votes': selected_choice.votes})
-    """
-    Handle user voting for a specific poll choice.
-
-    This view handles user voting for a specific poll choice. It receives a POST
-    request with the selected choice ID, updates the choice's vote count, and
-    redirects back to the poll detail page.
-
-    :param request: HTTP request object (POST)
-    :param poll_id: ID of the poll for which user is voting
-    :return: Redirect to poll detail page
-    """
-    poll = get_object_or_404(Poll, pk=poll_id)
-    total_votes = poll.choice_set.aggregate(Sum('votes'))['votes__sum']
-
-    if request.method == 'POST':
-        form = VoteForm(request.POST)
-        if form.is_valid():
-            choice_id = form.cleaned_data['choice']
-            choice = get_object_or_404(Choice, pk=choice_id)
-            choice.votes += 1
-            choice.save()
-            return redirect('polling:detail', poll_id=poll_id)
-
-    # If the form is not valid or not a POST request, redirect back to poll detail
-    return redirect('polling:detail', poll_id=poll_id)
-
 def poll_results_api(request, poll_id):
     """
     Fetch real-time poll results as JSON.
