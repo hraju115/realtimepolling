@@ -11,9 +11,6 @@ Welcome to the Real-Time Polling App with Django! This application allows users 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -63,9 +60,3 @@ Welcome to the Real-Time Polling App with Django! This application allows users 
    Open http://localhost:8000/ in your browser to start using the app.
 
 3. Create polls, vote, and view real-time poll results.
----
-
-For detailed information on the project's architecture, testing, and deployment, please refer to the [Documentation](docs/) directory.
-```
-
-Replace the placeholders with actual details, paths, and links according to your project's structure and requirements. This `README.md` file provides a comprehensive overview of your project, its features, installation, usage, API documentation, contribution guidelines, and licensing information.
