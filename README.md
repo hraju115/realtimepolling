@@ -3,7 +3,7 @@
 
 Welcome to the Real-Time Polling App with Django! This application allows users to create and participate in polls, with real-time updates of poll results using AJAX.
 
-![App Screenshot](/acreenshot/homepage.png)
+![App Screenshot](/screenshot/homepage.png)
 
 ## Table of Contents
 
